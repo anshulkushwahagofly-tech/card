@@ -19,8 +19,8 @@
     body{
       margin:0;
       font-family:Arial,Helvetica,sans-serif;
-      color:var(--text);
-      background:#fff;
+      color:var(--text);\n      background:#fff;
+      
     }
     .topbar{
       background:var(--blue2);
@@ -367,37 +367,35 @@
 
 /* ===== CARD PAYMENT DESIGN END ===== */
 .balance-tabs{
-      background: var(--blue2); /* match screenshot */
-
   width:100%;
   max-width:580px;
   height:55px;
-
   display:grid;
   grid-template-columns:repeat(4,1fr);
-
-  background:#fff;
+  background:var(--blue2);
   border:1px solid #e5e7eb;
   border-radius:12px 12px 0 0;
-
   overflow:hidden;
   box-shadow:0 1px 4px rgba(16,24,40,.06);
 }
 
 .balance-tab{
   position:relative;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   font-size:14px;
-  color:var(--line); /* match screenshot text */
+  color:var(--white);
   cursor:pointer;
+  border:none;
+  background:transparent;
+  font-family:inherit;
+  padding:0;
+  outline:none;
 }
 
 .balance-tab.active{
-  color:#007bff; /* bright blue active */
+  color:#00d2ff;
       font-weight:bold;
 }
 
@@ -612,8 +610,17 @@
     </div>
   </footer>
 
+
   <script>
+    function selectTab(btn) {
+      // Remove active from all tabs
+      document.querySelectorAll('.balance-tab').forEach(t => t.classList.remove('active'));
+      // Add active to clicked
+      btn.classList.add('active');
+    }
+    
     // Prevent selecting a future date of birth.
+
     const dob = document.getElementById('dob');
     if (dob) {
       dob.max = new Date().toISOString().split('T')[0];
