@@ -108,14 +108,10 @@
       flex:0 0 auto;
     }
     .panel{
-      width:100%;
-      background:#fff;
-      border:1px solid #e2e8ef;
-      border-top:none;
-      border-radius:0 0 12px 12px;
-      box-shadow:var(--shadow);
-      padding:30px;
-    }
+  width:100%;
+  background:#fff;
+  padding:30px;
+}
     .panel h2{
       margin:0 0 8px;
       color:var(--blue2);
@@ -368,38 +364,38 @@
 /* ===== CARD PAYMENT DESIGN END ===== */
 .balance-tabs{
   width:100%;
-  max-width:580px;
   height:55px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  background:var(--blue2);
-  border:1px solid #e5e7eb;
-  border-radius:12px 12px 0 0;
-  overflow:hidden;
-  box-shadow:0 1px 4px rgba(16,24,40,.06);
+  background:var(--blue); /* Slightly lighter than blue2 for the tabs */
+  border-bottom:1px solid var(--blue2);
 }
 
 .balance-tab{
-  border-right: 1px solid rgba(255,255,255,0.15);
   position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
   font-size:14px;
-  color:var(--white);
+  color:#d7dee8;
   cursor:pointer;
   border:none;
+  border-right: 1px solid rgba(255,255,255,0.15);
   background:transparent;
   font-family:inherit;
-  padding:0;
+  padding:0 5px;
   outline:none;
+  transition: 0.2s all;
+  line-height:1.2;
 }
 
 .balance-tab:last-child { border-right: none; }
 
 .balance-tab.active{
-  color:#00d2ff;
-      font-weight:bold;
+  color:#fff;
+  font-weight:bold;
+  background: var(--blue2); /* Active tab is darker! */
 }
 
 .balance-tab.active::after{
@@ -441,8 +437,8 @@
 </p>
 
 </div>
-<div class="card-container" style="width:100%; max-width:580px; display:flex; flex-direction:column;">
-  <div class="balance-tabs" style="max-width:100%; border-bottom:none; border-radius:12px 12px 0 0;">
+<div class="card-container" style="width:100%; max-width:580px; display:flex; flex-direction:column; background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(18,60,115,0.13); border:1px solid #e2e8ef; overflow:hidden;">
+  <div class="balance-tabs">
   <button type="button" class="balance-tab" onclick="selectTab(this)" data-target="content-register">Register Card</button>
   <button type="button" class="balance-tab active" onclick="selectTab(this)" data-target="content-check">Check</button>
   <button type="button" class="balance-tab" onclick="selectTab(this)" data-target="content-disputes">Track Disputes</button>
