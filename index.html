@@ -108,9 +108,11 @@
       flex:0 0 auto;
     }
     .panel{
+      width:100%;
       background:#fff;
       border:1px solid #e2e8ef;
-      border-radius:12px;
+      border-top:none;
+      border-radius:0 0 12px 12px;
       box-shadow:var(--shadow);
       padding:30px;
     }
@@ -365,6 +367,8 @@
 
 /* ===== CARD PAYMENT DESIGN END ===== */
 .balance-tabs{
+      background: var(--blue2); /* match screenshot */
+
   width:100%;
   max-width:580px;
   height:55px;
@@ -388,12 +392,13 @@
   justify-content:center;
 
   font-size:14px;
-  color:#667085;
+  color:var(--line); /* match screenshot text */
   cursor:pointer;
 }
 
 .balance-tab.active{
-  color:#155eef;
+  color:#007bff; /* bright blue active */
+      font-weight:bold;
 }
 
 .balance-tab.active::after{
@@ -405,7 +410,7 @@
   bottom:0;
 
   height:2px;
-  background:#155eef;
+  background:#007bff;
 }
   </style>
 </head>
@@ -435,7 +440,8 @@
 </p>
 
 </div>
-<div class="balance-tabs">
+<div class="card-container" style="width:100%; max-width:580px; display:flex; flex-direction:column;">
+  <div class="balance-tabs" style="max-width:100%; border-bottom:none; border-radius:12px 12px 0 0;">
   <button type="button" class="balance-tab" onclick="selectTab(this)">Register Card</button>
   <button type="button" class="balance-tab active" onclick="selectTab(this)">Check</button>
   <button type="button" class="balance-tab" onclick="selectTab(this)">Track Disputes</button>
@@ -554,6 +560,7 @@
           </form>
         </div>        </div>
       </div>
+</div>
     </section>
 
     <section class="section alt" id="help">
