@@ -84,6 +84,7 @@
   text-align:center;
 }
     .lead{
+      text-align:center;
       font-size:18px;
       line-height:1.65;
       color:var(--muted);
@@ -433,19 +434,14 @@
   /* Mobile Tab fixes */
   @media (max-width: 600px) {
     .balance-tabs {
-      display: flex !important;
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      border-bottom: 1px solid #e2e8ef;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      height: auto !important;
     }
-    .balance-tabs::-webkit-scrollbar {
-      display: none; /* hide scrollbar */
-    }
+    
     .balance-tab {
-      flex: 0 0 auto;
-      padding: 0 15px !important;
+      height: 48px !important;
+      padding: 0 5px !important;
       font-size: 13px !important;
     }
     .panel {
