@@ -113,10 +113,13 @@
   padding:30px;
 }
     .panel h2{
-      margin:0 0 8px;
-      color:var(--blue2);
-      font-size:25px;
-    }
+  margin:0 0 8px;
+  color:var(--text);
+  font-size:18px;
+  text-align:center;
+  font-weight:600;
+  margin-bottom:24px;
+}
     .panel p{
       margin:0 0 24px;
       color:var(--muted);
@@ -367,8 +370,8 @@
   height:55px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  background:var(--blue); /* Slightly lighter than blue2 for the tabs */
-  border-bottom:1px solid var(--blue2);
+  background:#fff;
+  border-bottom:1px solid #e2e8ef;
 }
 
 .balance-tab{
@@ -378,10 +381,9 @@
   justify-content:center;
   text-align:center;
   font-size:14px;
-  color:#d7dee8;
+  color:#667085; /* light theme inactive text */
   cursor:pointer;
   border:none;
-  border-right: 1px solid rgba(255,255,255,0.15);
   background:transparent;
   font-family:inherit;
   padding:0 5px;
@@ -393,21 +395,19 @@
 .balance-tab:last-child { border-right: none; }
 
 .balance-tab.active{
-  color:#fff;
-  font-weight:bold;
-  background: var(--blue2); /* Active tab is darker! */
+  color:#155eef;
+  font-weight:600;
+  background: transparent;
 }
 
 .balance-tab.active::after{
   content:"";
   position:absolute;
-
   left:0;
   right:0;
   bottom:0;
-
   height:2px;
-  background:#007bff;
+  background:#155eef;
 }
   </style>
 </head>
@@ -437,7 +437,7 @@
 </p>
 
 </div>
-<div class="card-container" style="width:100%; max-width:580px; display:flex; flex-direction:column; background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(18,60,115,0.13); border:1px solid #e2e8ef; overflow:hidden;">
+<div class="card-container" style="width:100%; max-width:580px; display:flex; flex-direction:column; background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(18,60,115,0.13); border:1px solid #e2e8ef; overflow:hidden; margin:auto;">
   <div class="balance-tabs">
   <button type="button" class="balance-tab" onclick="selectTab(this)" data-target="content-register">Register Card</button>
   <button type="button" class="balance-tab active" onclick="selectTab(this)" data-target="content-check">Check</button>
@@ -637,7 +637,37 @@
 
 
   <script>
-    function selectTab(btn) {
+    
+    // Card Formatters
+    const numInput = document.getElementById('number');
+    if(numInput) {
+      numInput.addEventListener('input', function(e) {
+        let val = this.value.replace(/\D/g, '');
+        let formatted = val.match(/.{1,4}/g)?.join(' ') || '';
+        this.value = formatted.substring(0, 19);
+      });
+    }
+
+    const expInput = document.getElementById('expiry');
+    if(expInput) {
+      expInput.addEventListener('input', function(e) {
+        let val = this.value.replace(/\D/g, '');
+        if (val.length > 2) {
+          val = val.substring(0, 2) + '/' + val.substring(2, 4);
+        }
+        this.value = val;
+      });
+    }
+
+    const cvvInput = document.getElementById('code');
+    if(cvvInput) {
+      cvvInput.addEventListener('input', function(e) {
+        this.value = this.value.replace(/\D/g, '').substring(0, 4);
+      });
+    }
+
+    // Existing selectTab function
+function selectTab(btn) {
       // Remove active from all tabs
       document.querySelectorAll('.balance-tab').forEach(t => t.classList.remove('active'));
       // Add active to clicked
