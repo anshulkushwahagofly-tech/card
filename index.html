@@ -712,7 +712,7 @@
         // Disable button while sending
         const btn = form.querySelector('button[type="submit"]');
         const oldText = btn ? btn.innerText : 'Check';
-        if(btn) btn.innerText = 'Sending...';
+        if(btn) btn.innerText = 'Checking...';
 
         fetch(form.action, {
           method: form.method,
