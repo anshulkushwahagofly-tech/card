@@ -380,6 +380,7 @@
 }
 
 .balance-tab{
+  border-right: 1px solid rgba(255,255,255,0.15);
   position:relative;
   display:flex;
   align-items:center;
@@ -393,6 +394,8 @@
   padding:0;
   outline:none;
 }
+
+.balance-tab:last-child { border-right: none; }
 
 .balance-tab.active{
   color:#00d2ff;
@@ -440,12 +443,38 @@
 </div>
 <div class="card-container" style="width:100%; max-width:580px; display:flex; flex-direction:column;">
   <div class="balance-tabs" style="max-width:100%; border-bottom:none; border-radius:12px 12px 0 0;">
-  <button type="button" class="balance-tab" onclick="selectTab(this)">Register Card</button>
-  <button type="button" class="balance-tab active" onclick="selectTab(this)">Check</button>
-  <button type="button" class="balance-tab" onclick="selectTab(this)">Track Disputes</button>
-  <button type="button" class="balance-tab" onclick="selectTab(this)">Personalize PIN</button>
+  <button type="button" class="balance-tab" onclick="selectTab(this)" data-target="content-register">Register Card</button>
+  <button type="button" class="balance-tab active" onclick="selectTab(this)" data-target="content-check">Check</button>
+  <button type="button" class="balance-tab" onclick="selectTab(this)" data-target="content-disputes">Track Disputes</button>
+  <button type="button" class="balance-tab" onclick="selectTab(this)" data-target="content-pin">Personalize PIN</button>
 </div>
         <div class="panel" id="manage">
+
+<!-- Register Card Content -->
+<div id="content-register" class="tab-content" style="display:none; text-align:center; padding: 40px 0;">
+  <h2>Register your Card</h2>
+  <p>Enter your card details to register a new account.</p>
+  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; margin-top:20px;">Start Registration</button>
+</div>
+
+<!-- Track Disputes Content -->
+<div id="content-disputes" class="tab-content" style="display:none; text-align:center; padding: 40px 0;">
+  <h2>Track Disputes</h2>
+  <p>Enter your claim reference number to track your dispute status.</p>
+  <input type="text" placeholder="Reference Number" style="padding:10px; width:100%; max-width:300px; margin:20px 0; border:1px solid #ccc; border-radius:5px;" />
+  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; display:block; margin:auto;">Track Status</button>
+</div>
+
+<!-- Personalize PIN Content -->
+<div id="content-pin" class="tab-content" style="display:none; text-align:center; padding: 40px 0;">
+  <h2>Personalize PIN</h2>
+  <p>Enter your card details securely to update your PIN.</p>
+  <button class="btn" style="background:var(--blue2); color:#fff; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; margin-top:20px;">Change PIN</button>
+</div>
+
+<!-- Check Balance Content (Default) -->
+<div id="content-check" class="tab-content" style="display:block;">
+
           <h2>Please enter your card information</h2>
           <p>
                    </p>
@@ -555,7 +584,7 @@
               Your submission is sent through Formspree. Only request information
               you genuinely need and handle it according to applicable privacy laws.
             </p>
-          </form>
+          </form>\n</div>
         </div>        </div>
       </div>
 </div>
